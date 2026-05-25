@@ -1,0 +1,2523 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Einführung in PHP7 anhand von Beispielen">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/de-php7-juillet-2019/anwendungsubung---version-9.html">
+      
+      
+        <link rel="prev" href="ubungsaufgabe---version-8.html">
+      
+      
+        <link rel="next" href="anwendungsubung---version-10.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>19. Anwendungsübung – Version 9 - Einführung in PHP7 anhand von Beispielen</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Einführung in PHP7 anhand von Beispielen";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#19-anwendungsubung-version-9" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Einführung in PHP7 anhand von Beispielen" class="md-header__button md-logo" aria-label="Einführung in PHP7 anhand von Beispielen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Einführung in PHP7 anhand von Beispielen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              19. Anwendungsübung – Version 9
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum Dunkelmodus wechseln"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Zum Dunkelmodus wechseln" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum hellen Modus wechseln"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Zum hellen Modus wechseln" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/de-php7-juillet-2019" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Einführung in PHP7 anhand von Beispielen" class="md-nav__button md-logo" aria-label="Einführung in PHP7 anhand von Beispielen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Einführung in PHP7 anhand von Beispielen
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/de-php7-juillet-2019" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Willkommen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="einfuhrung-in-php-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung in PHP 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="einrichten-einer-entwicklungsumgebung.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Einrichten einer Entwicklungsumgebung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="die-grundlagen-von-php.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Die Grundlagen von PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ubungsaufgabe---versionen-1-und-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Übungsaufgabe – Versionen 1 und 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="klassen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Klassen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schnittstellen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Schnittstellen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ausnahmen-und-fehler.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Ausnahmen und Fehler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anwendungsubung---version-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Anwendungsübung – Version 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="traits.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Traits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="geschichtete-anwendungen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Geschichtete Anwendungen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ubungsaufgabe---version-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Übungsaufgabe – Version 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="verwendung-des-mysql-dbms.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Verwendung des MySQL-DBMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="praxisubung---version-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Praxisübung – Version 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anwendungsubung---version-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Anwendungsübung – Version 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anwendungsaufgabe---version-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Anwendungsaufgabe – Version 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="netzwerkfunktionen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Netzwerkfunktionen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="webdienste.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Webdienste
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ubungsaufgabe---version-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Übungsaufgabe – Version 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Anwendungsübung – Version 9
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="anwendungsubung---version-9.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Anwendungsübung – Version 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#191-der-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.1. Der Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19.1. Der Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1911-hilfsprogramme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.1.1. Hilfsprogramme
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19.1.1. Hilfsprogramme">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#19111-die-klasse-logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.1.1.1. Die Klasse [Logger]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19112-die-klasse-sendadminmail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.1.1.2. Die Klasse [SendAdminMail]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1912-die-dao-schicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.1.2. Die [dao]-Schicht
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1913-das-server-skript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.1.3. Das Server-Skript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1914-codeception-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.1.4. [Codeception] Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#192-der-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.2. Der Client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19.2. Der Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1921-die-dao-schicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.2.1. Die [dao]-Schicht
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1922-die-konfigurationsdatei" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.2.2. Die Konfigurationsdatei
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#193-einige-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.3. Einige Tests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19.3. Einige Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1931-test-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.3.1. Test 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1932-test-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.3.2. Test 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1933-test-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.3.3. Test 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1934-test-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.3.4. Test 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1935-test-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.3.5. Test 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#194-tests-codeception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.4. Tests [Codeception]
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19.4. Tests [Codeception]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#19401-business-layer-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19.4.0.1. [Business]-Layer-Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anwendungsubung---version-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Anwendungsübung – Version 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="verarbeitung-von-xml-dokumenten.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Verarbeitung von XML-Dokumenten
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anwendungsubung---version-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Anwendungsübung – Version 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="praxisubung---version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Praxisübung – Version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anwendungsubung---version-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Anwendungsübung – Version 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="toc42690579-copie-2"></a>
+<a id="toc42689807-copie-2"></a>
+<a id="toc42690193-copie-2"></a>
+<a id="toc42690196-copie-2"></a>
+<a id="toc42690582-copie-2"></a>
+<a id="refheading398461881943603-copie-2"></a>
+<a id="toc42689810-copie-2"></a>
+<a id="toc42690220-copie-2"></a>
+<a id="toc42690606-copie-2"></a>
+<a id="refheading398821881943603-copie-2"></a>
+<a id="toc42689834-copie-2"></a>
+<a id="toc42690239-copie-2"></a>
+<a id="toc42690625-copie-2"></a>
+<a id="refheading398901881943603-copie-2"></a>
+<a id="toc42689853-copie-2"></a>
+<a id="toc42690259-copie-2"></a>
+<a id="toc42690645-copie-2"></a>
+<a id="refheading49023760291743-copie-2"></a>
+<a id="toc42689873-copie-2"></a>
+<a id="toc42690264-copie-2"></a>
+<a id="toc42690650-copie-2"></a>
+<a id="refheadingtoc55563710956990-copie-2"></a>
+<a id="toc42689878-copie-2"></a>
+<a id="toc42689890-copie-2"></a>
+<a id="toc42690276-copie-2"></a>
+<a id="toc42690662-copie-2"></a>
+<a id="refheading399101881943603-copie-2"></a>
+<a id="toc42690285-copie-2"></a>
+<a id="toc42690671-copie-2"></a>
+<a id="refheadingtoc788212244347140-copie-2"></a>
+<a id="toc42689899-copie-2"></a>
+<a id="toc42690293-copie-2"></a>
+<a id="toc42690679-copie-2"></a>
+<a id="refheadingtoc788352244347140-copie-2"></a>
+<a id="toc42689907-copie-2"></a>
+<a id="toc42690193-copie-1-copie-2"></a>
+<a id="toc42690579-copie-1-copie-2"></a>
+<a id="toc42689807-copie-1-copie-2"></a>
+<a id="toc42689810-copie-1-copie-2"></a>
+<a id="toc42690196-copie-1-copie-2"></a>
+<a id="toc42690582-copie-1-copie-2"></a>
+<a id="refheading398461881943603-copie-1-copie-2"></a>
+<a id="toc42689834-copie-1-copie-2"></a>
+<a id="toc42690220-copie-1-copie-2"></a>
+<a id="toc42690606-copie-1-copie-2"></a>
+<a id="refheading398821881943603-copie-1-copie-2"></a>
+<a id="toc42689853-copie-1-copie-2"></a>
+<a id="toc42690239-copie-1-copie-2"></a>
+<a id="toc42690625-copie-1-copie-2"></a>
+<a id="refheading398901881943603-copie-1-copie-2"></a>
+<a id="toc42689873-copie-1-copie-2"></a>
+<a id="toc42690259-copie-1-copie-2"></a>
+<a id="toc42690645-copie-1-copie-2"></a>
+<a id="refheading49023760291743-copie-1-copie-2"></a>
+<a id="toc42689878-copie-1-copie-2"></a>
+<a id="toc42690264-copie-1-copie-2"></a>
+<a id="toc42690650-copie-1-copie-2"></a>
+<a id="refheadingtoc55563710956990-copie-1-copie-2"></a>
+<a id="refheading399101881943603-copie-1-copie-2"></a>
+<a id="toc42689890-copie-1-copie-2"></a>
+<a id="toc42690276-copie-1-copie-2"></a>
+<a id="toc42690662-copie-1-copie-2"></a>
+<a id="toc42689899-copie-1-copie-2"></a>
+<a id="toc42690285-copie-1-copie-2"></a>
+<a id="toc42690671-copie-1-copie-2"></a>
+<a id="refheadingtoc788212244347140-copie-1-copie-2"></a>
+<a id="toc42689907-copie-1-copie-2"></a>
+<a id="toc42690293-copie-1-copie-2"></a>
+<a id="toc42690679-copie-1-copie-2"></a>
+<a id="refheadingtoc788352244347140-copie-1-copie-2"></a>
+<a id="toc42689913-copie-2"></a>
+<a id="toc42690299-copie-2"></a>
+<a id="toc42690685-copie-2"></a>
+<a id="refheadingtoc788472244347140-copie-2"></a>
+<a id="toc42689933-copie-2"></a>
+<a id="toc42690319-copie-2"></a>
+<a id="toc42690705-copie-2"></a>
+<a id="refheading399121881943603-copie-2"></a>
+<a id="exercicedapplication-1-copie-1"></a>
+<a id="refheading399241881943603-copie-1"></a>
+<a id="toc42689943-copie-1"></a>
+<a id="toc42690329-copie-1"></a>
+<a id="toc42690715-copie-1"></a>
+<a id="toc42689965-copie-1"></a>
+<a id="toc42690351-copie-1"></a>
+<a id="toc42690737-copie-1"></a>
+<a id="refheadingtoc822363439697744-copie-1"></a>
+<a id="toc42689974-copie-1"></a>
+<a id="toc42690360-copie-1"></a>
+<a id="toc42690746-copie-1"></a>
+<a id="refheadingtoc900823955410047-copie-1"></a>
+<a id="toc42689979-copie-1"></a>
+<a id="toc42690365-copie-1"></a>
+<a id="toc42690751-copie-1"></a>
+<a id="refheading399301881943603-copie-1"></a>
+<a id="toc42690014-copie-1"></a>
+<a id="toc42690400-copie-1"></a>
+<a id="toc42690786-copie-1"></a>
+<a id="refheading399381881943603-copie-1"></a>
+<a id="toc42690051-copie-1"></a>
+<a id="toc42690437-copie-1"></a>
+<a id="toc42690823-copie-1"></a>
+<a id="refheading399941881943603-copie-1"></a>
+<a id="toc42690068"></a>
+<a id="toc42690454"></a>
+<a id="toc42690840"></a>
+<a id="refheadingtoc1358002222329424"></a></p>
+<h1 id="19-anwendungsubung-version-9">19. <span style="color: #365f91">Anwendungsübung – Version 9</span></h1>
+<p>In dieser Version werden wir den Server wie folgt verbessern:</p>
+<ul>
+  <li>Derzeit werden bei jeder Anfrage die Steuerverwaltungsdaten aus der Datenbank abgerufen. Wir werden eine Sitzung verwenden:
+    <ul>
+      <li>Bei der ersten Anfrage eines Benutzers werden die Daten der Steuerbehörde aus der Datenbank abgerufen und in der Sitzung gespeichert;
+      </li>
+      <li>Bei nachfolgenden Anfragen desselben Benutzers werden die Daten der Steuerbehörde aus der Sitzung abgerufen. Da Datenbankabfragen ressourcenintensiv sind, ist mit einer leichten Verbesserung der Ausführungszeit zu rechnen;
+      </li>
+    </ul>
+  </li>
+  <li>Der Server protokolliert wichtige Ereignisse in einer Textdatei:
+    <ul>
+      <li>erfolgreiche oder fehlgeschlagene Authentifizierung;
+      </li>
+      <li>ob die vom Client gesendeten Parameter gültig sind;
+      </li>
+      <li>das Ergebnis der Steuerberechnung;
+      </li>
+      <li>verschiedene Fehlerfälle;
+      </li>
+    </ul>
+  </li>
+  <li>im Falle eines schwerwiegenden Fehlers wird eine E-Mail an den Anwendungsadministrator gesendet;
+  </li>
+</ul>
+
+<p>Der Client muss außerdem so angepasst werden, dass er das an ihn gesendete Sitzungs-Cookie verarbeitet.</p>
+<p><a id="toc42690069"></a>
+<a id="toc42690455"></a>
+<a id="toc42690841"></a>
+<a id="refheadingtoc1358022222329424"></a></p>
+<h2 id="191-der-server">19.1. <span style="color: #4f81bd">Der Server</span></h2>
+<p>Wir konzentrieren uns auf die serverseitige Komponente der Anwendung.</p>
+<p><img src="images/10000000000006110000015EBAF9A9E4.png" width="466" height="105" style="width:12.33cm;height:2.778cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006110000015EBAF9A9E4.png" /></p>
+<p>Diese Architektur wird durch die folgenden Skripte implementiert:</p>
+<p><img src="images/10000000000001D5000001BBAF4FD8BF.png" width="164" height="155" style="width:4.339cm;height:4.098cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D5000001BBAF4FD8BF.png" /></p>
+<p><a id="toc42690070"></a>
+<a id="toc42690456"></a>
+<a id="toc42690842"></a>
+<a id="refheadingtoc185693971629160"></a></p>
+<h3 id="1911-hilfsprogramme">19.1.1. <span style="color: #4f81bd">Hilfsprogramme</span></h3>
+<p><img src="images/1000000000000180000000FC6ADBAB2B.png" width="135" height="88" style="width:3.56cm;height:2.335cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000180000000FC6ADBAB2B.png" /></p>
+<p><a id="laclasselogger"></a>
+<a id="refheadingtoc1358062222329424"></a>
+<a id="toc42690071"></a>
+<a id="toc42690457"></a>
+<a id="toc42690843"></a></p>
+<h4 id="19111-die-klasse-logger">19.1.1.1. <span style="color: #4f81bd">Die Klasse [Logger]</span></h4>
+<p>Die Klasse <strong>[Logger]</strong> wird verwendet, um Protokolle in eine Textdatei zu schreiben:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">namespace</span><span style="color:#008080"> </span>Application;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">class</span><span style="color:#008080"> </span>Logger<span style="color:#008080"> </span>{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#008080">// attribute</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">  </span><span style="font-weight:bold">private</span><span style="color:#008080"> </span><span style="color:#0000ff">$resource</span>;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#008080">// manufacturer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">  </span><span style="font-weight:bold">public</span><span style="color:#008080"> </span><span style="font-weight:bold">function</span><span style="color:#008080"> </span><span style="font-weight:bold">__construct</span>(<span style="font-weight:bold">string</span><span style="color:#008080"> </span><span style="color:#0000ff">$logsFilename</span>)<span style="color:#008080"> </span>{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008080">// open file</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">    </span><span style="color:#0000ff">$this</span>-&gt;resource<span style="color:#008080"> </span>=<span style="color:#008080"> </span>fopen(<span style="color:#0000ff">$logsFilename</span>,<span style="color:#008080"> </span><span style="color:#008000">&quot;a&quot;</span>);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">    </span><span style="font-weight:bold">if</span><span style="color:#008080"> </span>(!<span style="color:#0000ff">$this</span>-&gt;resource)<span style="color:#008080"> </span>{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">      </span><span style="font-weight:bold">throw</span><span style="color:#008080"> </span><span style="font-weight:bold">new</span><span style="color:#008080"> </span>ExceptionImpots(<span style="color:#008000">&quot;Echec lors de la création du fichier de logs </span><span style="font-weight:bold;color:#008000">[$logsFilename]</span><span style="color:#008000">&quot;</span>);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">    </span>}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">  </span>}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#008080">// writing a message to the logs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">  </span><span style="font-weight:bold">public</span><span style="color:#008080"> </span><span style="font-weight:bold">function</span><span style="color:#008080"> </span>write(<span style="font-weight:bold">string</span><span style="color:#008080"> </span><span style="color:#0000ff">$message</span>)<span style="color:#008080"> </span>{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">    </span>fputs(<span style="color:#0000ff">$this</span>-&gt;resource,<span style="color:#008080"> </span>(<span style="font-weight:bold">new</span><span style="color:#008080"> </span>\DateTime())-&gt;format(<span style="color:#008000">&quot;d/m/y H:i:s:v&quot;</span>)<span style="color:#008080"> </span>.<span style="color:#008080"> </span><span style="color:#008000">&quot; : </span><span style="color:#0000ff">$message</span><span style="color:#008000">&quot;</span>);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">  </span>}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#008080">// close log file</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">  </span><span style="font-weight:bold">public</span><span style="color:#008080"> </span><span style="font-weight:bold">function</span><span style="color:#008080"> </span>close()<span style="color:#008080"> </span>{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">    </span>fclose(<span style="color:#0000ff">$this</span>-&gt;resource);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#008080">  </span>}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>Kommentare</strong></p>
+<ul>
+  <li>Zeile 7: die Logdatei-Ressource;
+  </li>
+  <li>Zeile 10: Der Klassenkonstruktor erhält den Namen der Protokolldatei als Parameter;
+  </li>
+  <li>Zeile 12: Die Textdatei wird im Anfüge-Modus (a+) geöffnet: Die Datei wird geöffnet und ihr Inhalt bleibt erhalten. Neue Daten werden hinter dem aktuellen Inhalt geschrieben;
+  </li>
+  <li>Zeilen 13–15: Wenn die Datei nicht geöffnet werden konnte, wird eine Ausnahme ausgelöst;
+  </li>
+  <li>Zeilen 19–21: Die Methode<b> [write] </b>schreibt die Meldung <b>[$message] </b>in die Protokolldatei, vorangestellt mit Datum und Uhrzeit;
+  </li>
+  <li>Zeilen 24–16: Die Methode<b> [close] </b>schließt die Protokolldatei;
+  </li>
+</ul>
+
+<p><strong>Hinweis</strong>: Die Serveranwendung kann mehrere Clients gleichzeitig bedienen. Es gibt jedoch nur eine Protokolldatei für alle. Daher besteht beim Schreiben in die Datei die Gefahr von Parallelzugriffen. Schreibvorgänge müssen daher synchronisiert werden, um zu verhindern, dass sie durcheinander geraten. PHP stellt zu diesem Zweck Semaphoren <strong>[https://www.php.net/manual/fr/book.sem.php]</strong> zur Verfügung. Wir werden die Schreibsynchronisation hier außer Acht lassen, müssen uns dieses Problems jedoch bewusst sein.</p>
+<p><a id="laclassesendadminmail"></a>
+<a id="refheadingtoc1358082222329424"></a>
+<a id="toc42690072"></a>
+<a id="toc42690458"></a>
+<a id="toc42690844"></a></p>
+<h4 id="19112-die-klasse-sendadminmail">19.1.1.2. <span style="color: #4f81bd">Die Klasse [SendAdminMail]</span></h4>
+<p>Die Klasse <strong>[SendAdminMail]</strong> ermöglicht es Ihnen, im Falle eines Absturzes eine E-Mail an den Anwendungsadministrator zu senden:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">namespace </span><span style="color:#000000">Application;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class </span><span style="color:#005032">SendAdminMail</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// attributes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">private </span><span style="color:#0000c0">$config</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">private </span><span style="color:#0000c0">$logger</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> __construct(</span><span style="font-weight:bold;color:#7f0055">array </span><span style="color:#000000">$config, </span><span style="color:#005032">Logger</span><span style="color:#000000"> $logger = </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $this-&gt;</span><span style="color:#0000c0">config</span><span style="color:#000000"> = $config;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $this-&gt;</span><span style="color:#0000c0">logger</span><span style="color:#000000"> = $logger;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> send() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// sends $this-&gt;config[&#x27;message&#x27;] to smtp server $this-&gt;config[&#x27;smtp-server&#x27;] on port $infos[smt-port]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// if $this-&gt;config[&#x27;tls&#x27;] is true, TLS support will be used</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// mail is sent from $this-&gt;config[&#x27;from&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// for recipient $this-&gt;config[&#x27;to&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// message has subject $this-&gt;config[&#x27;subject&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// attachments from $this-&gt;config[&#x27;attachments&#x27;] are attached to the mail</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// the result of the method</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">try </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// message creation</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $message = (</span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#000000">\</span><span style="color:#005032">Swift_Message</span><span style="color:#000000">())</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// message subject</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        -&gt;setSubject($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;subject&quot;]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// sender</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        -&gt;setFrom($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;from&quot;]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// recipients with a dictionary (setTo/setCc/setBcc)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        -&gt;setTo($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;to&quot;]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// message text</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        -&gt;setBody($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;message&quot;]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      ;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// attachments</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;attachments&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$attachment) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// path of attachment</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        $fileName = </span><span style="font-style:italic;color:#0000c0">__DIR__</span><span style="color:#000000"> . $attachment;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// check that the file exists</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">(</span><span style="font-style:italic;color:#000000">file_exists</span><span style="color:#000000">($fileName)) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          <span style="color:#000000">// attach the document to the message</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          $message-&gt;attach(\</span><span style="color:#005032">Swift_Attachment</span><span style="color:#000000">::</span><span style="font-style:italic;color:#000000">fromPath</span><span style="color:#000000">($fileName));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($this-&gt;</span><span style="color:#0000c0">logger</span><span style="color:#000000"> !== </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// error</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            $this-&gt;</span><span style="color:#0000c0">logger</span><span style="color:#000000">-&gt;write(</span><span style="color:#0000c0">&quot;L&#x27;attachement </span><span style="font-weight:bold;color:#0000c0">[$fileName]</span><span style="color:#0000c0"> n&#x27;existe pas\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// protocol TLS ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;tls&quot;]</span><span style="color:#000000"> === </span><span style="color:#0000c0">&quot;TRUE&quot;</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// TLS</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        $transport = (</span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#000000">\</span><span style="color:#005032">Swift_SmtpTransport</span><span style="color:#000000">($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;smtp-server&quot;]</span><span style="color:#000000">, $this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;smtp-port&quot;]</span><span style="color:#000000">, </span><span style="color:#0000c0">&#x27;tls&#x27;</span><span style="color:#000000">))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          -&gt;setUsername($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;user&quot;]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          -&gt;setPassword($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;password&quot;]</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      } </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// no TLS</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        $transport = (</span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#000000">\</span><span style="color:#005032">Swift_SmtpTransport</span><span style="color:#000000">($this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;smtp-server&quot;]</span><span style="color:#000000">, $this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;smtp-port&quot;]</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// the shipment manager</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $mailer = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#000000">\</span><span style="color:#005032">Swift_Mailer</span><span style="color:#000000">($transport);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// sending the message</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      $mailer-&gt;send($message);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// end</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($this-&gt;</span><span style="color:#0000c0">logger</span><span style="color:#000000"> !== </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        $this-&gt;</span><span style="color:#0000c0">logger</span><span style="color:#000000">-&gt;write(</span><span style="color:#0000c0">&quot;Message </span><span style="font-weight:bold;color:#0000c0">[{$this-&gt;config[&quot;message&quot;]</span><span style="color:#000000">}</span><span style="color:#0000c0">] envoyé à </span><span style="color:#000000">{$this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;to&quot;]</span><span style="color:#000000">}</span><span style="color:#0000c0">\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch </span><span style="color:#000000">(\</span><span style="color:#005032">Throwable</span><span style="color:#000000"> $ex) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// error</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($this-&gt;</span><span style="color:#0000c0">logger</span><span style="color:#000000"> !== </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        $this-&gt;</span><span style="color:#0000c0">logger</span><span style="color:#000000">-&gt;write(</span><span style="color:#0000c0">&quot;Erreur lors de l&#x27;envoi du message </span><span style="font-weight:bold;color:#0000c0">[{$this-&gt;config[&quot;message&quot;]</span><span style="color:#000000">}</span><span style="color:#0000c0">] à </span><span style="color:#000000">{$this-&gt;</span><span style="color:#0000c0">config</span><span style="font-weight:bold;color:#000000">[&quot;to&quot;]</span><span style="color:#000000">}</span><span style="color:#0000c0">\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>Kommentare</strong></p>
+<ul>
+  <li>Zeile 11: Der Konstruktor nimmt zwei Parameter entgegen:
+    <ul>
+      <li><b>[$config]</b>: ein assoziatives Array, das alle für den E-Mail-Versand erforderlichen Informationen enthält;
+      </li>
+      <li><b>[$logger]</b>: ein Logger, der verwendet wird, um wichtige Momente während des E-Mail-Versandprozesses zu protokollieren;
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Das assoziative Array hat folgende Form:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>        <span class="s2">&quot;smtp-server&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>        <span class="s2">&quot;smtp-port&quot;</span><span class="p">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;guest@localhost&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;guest@localhost&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;plantage du serveur de calcul d&#39;impôts&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="s2">&quot;tls&quot;</span><span class="p">:</span> <span class="s2">&quot;FALSE&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="s2">&quot;attachments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>Zeilen 16–76: Die Methode<b> [send] </b>wird zum Versenden der E-Mail verwendet. Dieser Code wurde im <a href="#clientpop3"><u><span style="color: #0563c1">verlinkten</span></u></a> Abschnitt vorgestellt und beschrieben;
+  </li>
+</ul>
+<p><a id="lacouchedao2"></a>
+<a id="refheadingtoc1358102222329424"></a>
+<a id="toc42690073"></a>
+<a id="toc42690459"></a>
+<a id="toc42690845"></a></p>
+<h3 id="1912-die-dao-schicht">19.1.2. <span style="color: #4f81bd">Die [dao]-Schicht</span></h3>
+<p><img src="images/10000000000001D3000000DFA9C42B19.png" width="164" height="78" style="width:4.33cm;height:2.067cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D3000000DFA9C42B19.png" /></p>
+<p>Das Skript <strong>[ServeurDaoWithSession.php]</strong> lautet wie folgt:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// namespace</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">namespace </span><span style="color:#000000">Application;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// definition of a ImpotsWithDataInDatabase class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class </span><span style="color:#005032">ServerDaoWithSession</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">extends </span><span style="color:#005032">ServerDao</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> __construct(</span><span style="font-weight:bold;color:#7f0055">string </span><span style="color:#000000">$databaseFilename = </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">, </span><span style="color:#005032">TaxAdminData</span><span style="color:#000000"> $taxAdminData = </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// simplest case</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($taxAdminData !== </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $this-&gt;</span><span style="color:#0000c0">taxAdminData</span><span style="color:#000000"> = $taxAdminData;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// hand over to parent class</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">parent</span><span style="color:#000000">::</span><span style="font-style:italic;color:#000000">__construct</span><span style="color:#000000">($databaseFilename);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>Kommentare</strong></p>
+<ul>
+  <li>Zeile 7: Die Klasse<b> [ServerDaoWithSession] </b>in Version 09 erweitert die Klasse<b> [ServerDao] </b>aus Version 08. Tatsächlich weiß die Klasse<b> [ServerDao] </b>bereits, wie die Datenbank zu verwenden ist. Es bleibt nur noch, den Fall zu behandeln, in dem die Daten der Steuerverwaltung bereits abgerufen wurden:
+  </li>
+  <li>Zeile 10: Der Konstruktor nimmt nun zwei Parameter entgegen:
+    <ul>
+      <li><b>[string $databaseFilename]</b>: Name der Datei, die die für die Verbindung zur Datenbank erforderlichen Informationen enthält, falls die Steuerverwaltungsdaten noch nicht abgerufen wurden, andernfalls NULL;
+      </li>
+      <li><b>[TaxAdminData $taxAdminData]</b>: die Daten der Steuerverwaltung, sofern bereits abgerufen, andernfalls NULL;
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Wenn eine Web-Sitzung beginnt, wird die <strong>[dao]</strong>-Schicht mit einem nicht-NULL-Objekt <strong>[$databaseFilename]</strong> und einem NULL-Objekt <strong>[taxAdminData]</strong> aufgebaut. Die Daten der Steuerbehörde werden dann aus der Datenbank abgerufen und in der Sitzung gespeichert. Bei nachfolgenden Anfragen innerhalb derselben Sitzung wird die <strong>[dao]</strong>-Schicht mit einem NULL-Objekt <strong>[databaseFilename]</strong> und einem aus der Sitzung abgerufenen <strong>[taxAdminData]</strong>-Objekt (das nicht NULL ist) aufgebaut. Daher findet keine Datenbankabfrage statt.</p>
+<p><a id="toc42690074"></a>
+<a id="toc42690460"></a>
+<a id="toc42690846"></a>
+<a id="refheadingtoc1358122222329424"></a></p>
+<h3 id="1913-das-server-skript">19.1.3. <span style="color: #4f81bd">Das Server-Skript</span></h3>
+<p>Das Serverskript <strong>[impots-server.php]</strong> wird durch die folgende JSON-Datei <strong>[config-server.json]</strong> konfiguriert:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;rootDirectory&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;C:/myprograms/laragon-lite/www/php7/scripts-web/impots/version-09&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;databaseFilename&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;Data/database.json&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;relativeDependencies&quot;</span>: [</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Entities/BaseEntity.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Entities/ExceptionImpots.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Entities/TaxAdminData.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Entities/Database.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Dao/InterfaceServerDao.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Dao/ServerDao.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/Dao/ServerDaoWithSession.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Métier/InterfaceServerMetier.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Métier/ServerMetier.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/Utilities/Logger.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/Utilities/SendAdminMail.php&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;absoluteDependencies&quot;</span>: <span style="font-weight:bold">[&quot;C:/myprograms/laragon-lite/www/vendor/autoload.php&quot;]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;users&quot;</span>: [</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#7f007f">&quot;login&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;admin&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#7f007f">&quot;passwd&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;admin&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;</span><span style="background-color:#ffff00;color:#7f007f">adminMail</span><span style="color:#7f007f">&quot;</span>: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;smtp-server&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;localhost&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;smtp-port&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;25&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;from&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;guest@localhost&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;to&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;guest@localhost&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;subject&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;plantage du serveur de calcul d&#x27;impôts&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;tls&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;FALSE&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;attachments&quot;</span>: []</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;</span><span style="background-color:#ffff00;color:#7f007f">logsFilename</span><span style="color:#7f007f">&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;Data/logs.txt&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>Das Server-Skript <strong>[impots-server.php]</strong> ändert sich wie folgt:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// strict adherence to declared types of function parameters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">declare </span><span style="color:#000000">(strict_types=1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// namespace</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">namespace </span><span style="color:#000000">Application;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// error handling by PHP</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;color:#000000">ini_set</span><span style="color:#000000">(</span><span style="color:#0000c0">&quot;display_errors&quot;</span><span style="color:#000000">, </span><span style="color:#0000c0">&quot;0&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">//</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// configuration file path</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;color:#000000">define</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">&quot;CONFIG_FILENAME&quot;</span><span style="color:#000000">, </span><span style="color:#0000c0">&quot;Data/config-server.json&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// we retrieve the configuration</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$config = \</span><span style="font-style:italic;color:#000000">json_decode</span><span style="color:#000000">(</span><span style="font-style:italic;color:#000000">file_get_contents</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">CONFIG_FILENAME</span><span style="color:#000000">), </span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// include the necessary script dependencies</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$rootDirectory = $config</span><span style="font-weight:bold;color:#000000">[&quot;rootDirectory&quot;]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;relativeDependencies&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$dependency) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">require </span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$rootDirectory$dependency</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// absolute dependencies (third-party libraries)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;absoluteDependencies&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$dependency) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">require </span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$dependency</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">//</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// symfony dependencies</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">use </span><span style="color:#000000">\Symfony\Component\HttpFoundation\Response;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">use </span><span style="color:#000000">\Symfony\Component\HttpFoundation\Request;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">use </span><span style="color:#000000">\Symfony\Component\HttpFoundation\Session\Session;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// session</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$session = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">Session</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">$session-&gt;start();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// prepare JSON server response</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$response = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">Response</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$response-&gt;</span><span style="color:#0000c0">headers</span><span style="color:#000000">-&gt;set(</span><span style="color:#0000c0">&quot;content-type&quot;</span><span style="color:#000000">, </span><span style="color:#0000c0">&quot;application/json&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$response-&gt;setCharset(</span><span style="color:#0000c0">&quot;utf-8&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// log file creation</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">try </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $logger = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">Logger</span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&#x27;logsFilename&#x27;]</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">} </span><span style="font-weight:bold;color:#7f0055">catch </span><span style="color:#000000">(</span><span style="color:#005032">ExceptionImpots</span><span style="color:#000000"> $ex) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// internal server error</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-style:italic;color:#000000">doInternalServerError</span><span style="color:#000000">($ex-&gt;getMessage(), $response, </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">, $config</span><span style="font-weight:bold;color:#000000">[&#x27;adminMail&#x27;]</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// completed</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">exit</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// 1st log</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$logger-&gt;write(</span><span style="color:#0000c0">&quot;\n---nouvelle requête\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// retrieve the current query</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$request = </span><span style="color:#005032">Request</span><span style="color:#000000">::</span><span style="font-style:italic;color:#000000">createFromGlobals</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// authentication only the 1st time</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">(!$session-&gt;has(</span><span style="color:#0000c0">&quot;user&quot;</span><span style="color:#000000">)) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// log</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $logger-&gt;write(</span><span style="color:#0000c0">&quot;Autentification en cours…\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// authentication</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// has the user been found?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">(!$trouvé) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// not found - code 401 HTTP_UNAUTHORIZED</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-style:italic;color:#000000">sendResponse</span><span style="color:#000000">(</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      $response,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#000000">[&quot;erreur&quot; =&gt; &quot;Echec de l&#x27;authentification [$requestUser, $requestPassword]</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#005032">Response</span><span style="color:#000000">::</span><span style="font-style:italic;color:#0000c0">HTTP_UNAUTHORIZED</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#000000">[&quot;WWW-Authenticate&quot; =&gt; &quot;Basic realm=&quot; . utf8_decode(&quot;\&quot;Serveur de calcul d&#x27;impôts\&quot;&quot;)]</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      $logger</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    );</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// completed</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">exit</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  } </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// we note in the session that we have authenticated the user</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $session-&gt;set(</span><span style="color:#0000c0">&quot;user&quot;</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">TRUE</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// log</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $logger-&gt;write(</span><span style="color:#0000c0">&quot;Authentification réussie </span><span style="font-weight:bold;color:#0000c0">[$requestUser, $requestPassword]</span><span style="color:#0000c0">\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">} </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// log</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $logger-&gt;write(</span><span style="color:#0000c0">&quot;Authentification prise en session…\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// we have a valid user - we check the parameters received</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">$erreurs = [];</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// you need three parameters GET</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// mistakes?</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($erreurs) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// an error code 400 HTTP_BAD_REQUEST is sent to the customer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-style:italic;color:#000000">sendResponse</span><span style="color:#000000">($response, </span><span style="font-weight:bold;color:#000000">[&quot;erreurs&quot; =&gt; $erreurs]</span><span style="color:#000000">, </span><span style="color:#005032">Response</span><span style="color:#000000">::</span><span style="font-style:italic;color:#0000c0">HTTP_BAD_REQUEST</span><span style="color:#000000">, [], $logger);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// completed</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">exit</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">} </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// logs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $logger-&gt;write(</span><span style="color:#0000c0">&quot;paramètres </span><span style="font-weight:bold;color:#0000c0">[&#x27;marié&#x27;=&gt;$marié, &#x27;enfants&#x27;=&gt;$enfants, &#x27;salaire&#x27;=&gt;$salaire]</span><span style="color:#0000c0"> valides\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// we have everything you need to work</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// creation of the [dao] layer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">(!$session-&gt;has(</span><span style="color:#0000c0">&quot;taxAdminData&quot;</span><span style="color:#000000">)) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// the data is taken from the database</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $logger-&gt;write(</span><span style="color:#0000c0">&quot;données fiscales prises en base de données\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">try </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// construction of the [dao] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $dao = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">ServerDaoWithSession</span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;databaseFilename&quot;]</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// put data in session</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $session-&gt;set(</span><span style="color:#0000c0">&quot;taxAdminData&quot;</span><span style="color:#000000">, $dao-&gt;getTaxAdminData());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  } </span><span style="font-weight:bold;color:#7f0055">catch </span><span style="color:#000000">(\</span><span style="color:#005032">RuntimeException</span><span style="color:#000000"> $ex) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// we note the error</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-style:italic;color:#000000">doInternalServerError</span><span style="color:#000000">(</span><span style="font-style:italic;color:#000000">utf8_encode</span><span style="color:#000000">($ex-&gt;getMessage()), $response, $logger, $config</span><span style="font-weight:bold;color:#000000">[&#x27;adminMail&#x27;]</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// completed</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">exit</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">} </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// data are taken from the session</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $dao = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">ServerDaoWithSession</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">, $session-&gt;get(</span><span style="color:#0000c0">&quot;taxAdminData&quot;</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// logs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $logger-&gt;write(</span><span style="color:#0000c0">&quot;données fiscales prises en session\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// creation of the [business] layer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$métier = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">ServerMetier</span><span style="color:#000000">($dao);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// tAX CALCULATION</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$result = $métier-&gt;calculerImpot($marié, (int) $enfants, (int) $salaire);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// we return the answer</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;color:#000000">sendResponse</span><span style="color:#000000">($response, $result, </span><span style="color:#005032">Response</span><span style="color:#000000">::</span><span style="font-style:italic;color:#0000c0">HTTP_OK</span><span style="color:#000000">, [], $logger);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// end</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">exit</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> </span><span style="font-style:italic;color:#000000">doInternalServerError</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">string </span><span style="color:#000000">$message, </span><span style="color:#005032">Response</span><span style="color:#000000"> $response, </span><span style="color:#005032">Logger</span><span style="color:#000000"> $logger = </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">array </span><span style="color:#000000">$infos) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// send an e-mail to the administrator</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// SendAdminMail intercepts all exceptions and logs them itself</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $infos</span><span style="font-weight:bold;color:#000000">[&#x27;message&#x27;]</span><span style="color:#000000"> = $message;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $sendAdminMail = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">SendAdminMail</span><span style="color:#000000">($infos, $logger);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  $sendAdminMail-&gt;send();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// an error code 500 is sent to the customer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-style:italic;color:#000000">sendResponse</span><span style="color:#000000">($response, </span><span style="font-weight:bold;color:#000000">[&quot;erreur&quot; =&gt; $message]</span><span style="color:#000000">, </span><span style="color:#005032">Response</span><span style="color:#000000">::</span><span style="font-style:italic;color:#0000c0">HTTP_INTERNAL_SERVER_ERROR</span><span style="color:#000000">, [], $logger);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// function to send HTTP response to client</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> </span><span style="font-style:italic;color:#000000">sendResponse</span><span style="color:#000000">(</span><span style="color:#005032">Response</span><span style="color:#000000"> $response, </span><span style="font-weight:bold;color:#7f0055">array </span><span style="color:#000000">$result, </span><span style="font-weight:bold;color:#7f0055">int </span><span style="color:#000000">$statusCode, </span><span style="font-weight:bold;color:#7f0055">array </span><span style="color:#000000">$headers, </span><span style="color:#005032">Logger</span><span style="color:#000000"> $logger) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// $response : answer HTTP</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// $result: results table</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// $statusCode: HTTP response status</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// $headers: HTTP headers to be included in the response</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// $logger: application logger</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">//</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// status HTTTP</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  $response-&gt;setStatusCode($statusCode);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// body</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $body = \</span><span style="font-style:italic;color:#000000">json_encode</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#000000">[&quot;réponse&quot; =&gt; $result]</span><span style="color:#000000">, </span><span style="font-style:italic;color:#0000c0">JSON_UNESCAPED_UNICODE</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  $response-&gt;setContent($body);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// headers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  $response-&gt;</span><span style="color:#0000c0">headers</span><span style="color:#000000">-&gt;add($headers);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// shipping</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  $response-&gt;send();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// log</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($logger != </span><span style="font-weight:bold;color:#7f0055">NULL</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $logger-&gt;write(</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$body</span><span style="color:#0000c0">\n&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    $logger-&gt;close();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>Kommentare</strong></p>
+<ul>
+  <li>Zeilen 34–35: Starten einer Sitzung;
+  </li>
+  <li>Zeilen 38–40: eine JSON-Antwort vorbereiten;
+  </li>
+  <li>Zeilen 42–50: Versuch, die Protokolldatei zu erstellen. Tritt eine Ausnahme auf, wird die Methode<b> [doInternalServer] </b>(Zeilen 132–140) aufgerufen;
+  </li>
+  <li>Zeile 132: Die Methode<b> [doInternalServer] </b>akzeptiert vier Parameter:
+    <ul>
+      <li><b>[$message]</b>: die zu protokollierende Meldung. Muss in UTF-8 kodiert sein;
+      </li>
+      <li><b>[$response]</b>: das <b>[Response]</b>-Objekt, das die Antwort des Servers an seinen Client kapselt;
+      </li>
+      <li><b>[$logger]</b>: das für die Protokollierung verwendete <b>[Logger]</b>-Objekt;
+      </li>
+      <li><b>[$infos]</b>: die Informationen, die zum Senden einer E-Mail an den Anwendungsadministrator verwendet werden;
+      </li>
+    </ul>
+  </li>
+  <li>Zeilen 135–137: Es wird eine E-Mail an den Anwendungsadministrator gesendet;
+  </li>
+  <li>Zeile 139: Die Antwort wird an den Client gesendet:
+    <ul>
+      <li>$response: HTTP-Antwort;
+      </li>
+      <li>$result: Der Server sendet die JSON-Zeichenkette aus dem Array <b>[‘response’=&gt;[&quot;error&quot; =&gt; $message]</b>];
+      </li>
+      <li>$statusCode: <b><span style="color: #0000c0">[Response::HTTP_INTERNAL_SERVER_ERROR]</span></b>, Code 500;
+      </li>
+      <li>$headers: [], keine HTTP-Header, die der Antwort hinzugefügt werden sollen;
+      </li>
+      <li>$logger: der Anwendungslogger;
+      </li>
+    </ul>
+  </li>
+  <li>Zeile 58: Dank der eingerichteten Sitzung authentifizieren wir den Client nur einmal:
+    <ul>
+      <li>Sobald der Client authentifiziert ist, setzen wir einen <b>[user]</b>-Schlüssel in der Sitzung (Zeile 78);
+      </li>
+      <li>Bei der nächsten Anfrage desselben Clients verhindert Zeile 58 eine unnötige Authentifizierung;
+      </li>
+    </ul>
+  </li>
+  <li>Zeile 103: Dank der eingerichteten Sitzung wird die Datenbank nur einmal durchsucht:
+    <ul>
+      <li>Bei der ersten Anfrage wird die Datenbanksuche durchgeführt (Zeile 108). Die abgerufenen Daten werden dann in der Sitzung (Zeile 110) unter dem Schlüssel<b> [taxAdminData] </b>gespeichert;
+      </li>
+      <li>Bei nachfolgenden Anfragen wird der Schlüssel<b> [taxAdminData] </b>in der Sitzung gefunden (Zeile 103), und die Daten auf der Festplatte werden dann direkt an die <b>[dao]</b>-Schicht übergeben (Zeile 119);
+      </li>
+    </ul>
+  </li>
+  <li>Zeilen 111–116: Die Suche nach Steuerdaten in der Datenbank kann fehlschlagen. In diesem Fall wird ein <b>[500 Internal Server Error]</b>-Code an den Client gesendet;
+  </li>
+  <li>Zeile 113: Die Fehlermeldung aus der MySQL-Treiberausnahme ist in ISO 8859-1 kodiert. Sie wird in UTF-8 konvertiert, um korrekt protokolliert zu werden;
+  </li>
+  <li>Der Rest des Codes ist fast identisch mit dem der vorherigen Version;
+  </li>
+  <li>Zeilen 143–164: Die Funktion<b> [sendResponse] </b>sendet alle Antworten an den Client;
+  </li>
+  <li>Zeilen 144–148: Bedeutung der Parameter;
+  </li>
+  <li>Zeile 153: Die Antwort ist immer die JSON-Zeichenkette eines Arrays <b>[‘result’=&gt;something]</b>;
+  </li>
+  <li>Zeile 156: Manchmal müssen der Antwort HTTP-Header hinzugefügt werden. Dies ist in Zeile 71 der Fall;
+  </li>
+  <li>Zeile 158: Die Antwort wird gesendet;
+  </li>
+  <li>Zeilen 160–163: Die Antwort wird protokolliert und der Logger wird geschlossen;
+  </li>
+</ul>
+<p><a id="toc42690075"></a>
+<a id="toc42690461"></a>
+<a id="toc42690847"></a>
+<a id="refheadingtoc185695971629160"></a></p>
+<h3 id="1914-codeception-tests">19.1.4. <span style="color: #4f81bd">[Codeception] Tests</span></h3>
+<p><img src="images/100000000000020D0000020B500994C0.png" width="184" height="183" style="width:4.86cm;height:4.842cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000020D0000020B500994C0.png" /></p>
+<p>Wir werden nur die <strong>[dao]</strong>-Schicht testen, da sich nur diese geändert hat.</p>
+<p>Der Testcode für <strong>[ServerDaoTest]</strong> lautet wie folgt:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// strict adherence to declared types of function parameters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">declare </span><span style="color:#000000">(strict_types=1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// namespace</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">namespace </span><span style="color:#000000">Application;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// definition of constants</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;color:#000000">define</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">&quot;</span><span style="font-style:italic;background-color:#ffff00;color:#0000c0">ROOT</span><span style="font-style:italic;color:#0000c0">&quot;</span><span style="color:#000000">, </span><span style="color:#0000c0">&quot;C:/myprograms/laragon-lite/www/php7/scripts-web/impots/</span><span style="background-color:#ffff00;color:#0000c0">version-09</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// configuration file path</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;color:#000000">define</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">&quot;CONFIG_FILENAME&quot;</span><span style="color:#000000">, </span><span style="font-style:italic;color:#0000c0">ROOT</span><span style="color:#000000"> . </span><span style="color:#0000c0">&quot;/Data/config-server.json&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// we retrieve the configuration</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$config = \</span><span style="font-style:italic;color:#000000">json_decode</span><span style="color:#000000">(\</span><span style="font-style:italic;color:#000000">file_get_contents</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">CONFIG_FILENAME</span><span style="color:#000000">), </span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// include the necessary script dependencies</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$rootDirectory = $config</span><span style="font-weight:bold;color:#000000">[&quot;rootDirectory&quot;]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;relativeDependencies&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$dependency) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">require </span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$rootDirectory$dependency</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// absolute dependencies (third-party libraries)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;absoluteDependencies&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$dependency) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">require </span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$dependency</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// test -----------------------------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class </span><span style="color:#005032">ServerDaoTest</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">extends </span><span style="text-decoration:underline;color:#000000">\Codeception\Test\</span><span style="text-decoration:underline;color:#005032">Unit</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// TaxAdminData</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">private </span><span style="color:#0000c0">$taxAdminData</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> __construct() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// parent</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">parent</span><span style="color:#000000">::</span><span style="font-style:italic;color:#000000">__construct</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// we retrieve the configuration</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $config = \</span><span style="font-style:italic;color:#000000">json_decode</span><span style="color:#000000">(\</span><span style="font-style:italic;color:#000000">file_get_contents</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">CONFIG_FILENAME</span><span style="color:#000000">), </span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// creation of the [dao] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $dao = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="background-color:#ffff00;color:#005032">ServerDaoWithSession</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">ROOT</span><span style="color:#000000"> . </span><span style="color:#0000c0">&quot;/&quot; </span><span style="color:#000000">. $config</span><span style="font-weight:bold;color:#000000">[&quot;databaseFilename&quot;]</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $this-&gt;</span><span style="color:#0000c0">taxAdminData</span><span style="color:#000000"> = $dao-&gt;getTaxAdminData();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// tests</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> testTaxAdminData() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>Zeilen 9–24: Wir erstellen eine Laufzeitumgebung, die mit der des Server-Skripts <b>[impots-server] </b>identisch ist;
+  </li>
+  <li>Zeile 38: Um die <b>[dao]</b>-Schicht zu erstellen, instanziieren wir die Klasse<b> [ServerDaoWithSession]</b>;
+  </li>
+</ul>
+
+<p>Die Testergebnisse lauten wie folgt:</p>
+<p><img src="images/1000000000000666000002BBA0A84FDD.png" width="573" height="245" style="width:15.169cm;height:6.473cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000666000002BBA0A84FDD.png" /></p>
+<p><a id="toc42690076"></a>
+<a id="toc42690462"></a>
+<a id="toc42690848"></a>
+<a id="refheadingtoc1358142222329424"></a></p>
+<h2 id="192-der-client">19.2. <span style="color: #4f81bd">Der Client</span></h2>
+<p>Wir konzentrieren uns auf die Client-Seite der Anwendung.</p>
+<p><img src="images/1000000000000608000001693E68B4C3.png" width="463" height="108" style="width:12.263cm;height:2.866cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000608000001693E68B4C3.png" /></p>
+<p>Diese Architektur wird durch die folgenden Skripte implementiert:</p>
+<p><img src="images/100000000000019F000001950A894F3B.png" width="145" height="142" style="width:3.842cm;height:3.748cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019F000001950A894F3B.png" /></p>
+<p>In der neuen Version gibt es lediglich folgende Änderungen:</p>
+<ul>
+  <li>die Konfigurationsdatei <b>[config-client.json]</b>;
+  </li>
+  <li>die <b>[dao]</b>-Schicht des Clients;
+  </li>
+</ul>
+<p><a id="lacouchedao1"></a>
+<a id="refheadingtoc1358162222329424"></a>
+<a id="toc42690077"></a>
+<a id="toc42690463"></a>
+<a id="toc42690849"></a></p>
+<h3 id="1921-die-dao-schicht">19.2.1. <span style="color: #4f81bd">Die [dao]-Schicht</span></h3>
+<p>Die <strong>[Dao]</strong>-Schicht entwickelt sich wie folgt:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">namespace </span><span style="color:#000000">Application;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// dependencies</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">use </span><span style="color:#000000">\Symfony\Component\HttpClient\HttpClient;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class </span><span style="color:#005032">ClientDao</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">implements </span><span style="color:#005032">InterfaceClientDao</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// using a Trait</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">use </span><span style="color:#005032">TraitDao</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// attributes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">private </span><span style="color:#0000c0">$urlServer</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">private </span><span style="color:#0000c0">$user</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">private </span><span style="color:#0000c0">$sessionCookie</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// manufacturer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> __construct(</span><span style="font-weight:bold;color:#7f0055">string </span><span style="color:#000000">$urlServer, </span><span style="font-weight:bold;color:#7f0055">array </span><span style="color:#000000">$user) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $this-&gt;</span><span style="color:#0000c0">urlServer</span><span style="color:#000000"> = $urlServer;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $this-&gt;</span><span style="color:#0000c0">user</span><span style="color:#000000"> = $user;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// tAX CALCULATION</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> calculerImpot(</span><span style="font-weight:bold;color:#7f0055">string </span><span style="color:#000000">$marié, </span><span style="font-weight:bold;color:#7f0055">int </span><span style="color:#000000">$enfants, </span><span style="font-weight:bold;color:#7f0055">int </span><span style="color:#000000">$salaire): </span><span style="font-weight:bold;color:#7f0055">array </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// session cookie ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">(!$this-&gt;</span><span style="color:#0000c0">sessionCookie</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// create a HTTP customer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $httpClient = </span><span style="color:#005032">HttpClient</span><span style="color:#000000">::</span><span style="font-style:italic;color:#000000">create</span><span style="color:#000000">([</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          <span style="color:#000000">&#x27;auth_basic&#x27; =&gt; [$this-&gt;user[&quot;login&quot;], $this-&gt;user[&quot;passwd&quot;]],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#0000c0">&quot;verify_peer&quot; </span><span style="color:#000000">=&gt; </span><span style="font-weight:bold;color:#7f0055">false</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">      </span><span style="color:#000000">]);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// make the request to the server without a session cookie</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $response = $httpClient-&gt;request(</span><span style="color:#0000c0">&#x27;GET&#x27;</span><span style="color:#000000">, $this-&gt;</span><span style="color:#0000c0">urlServer</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        [</span><span style="color:#0000c0">&quot;query&quot; </span><span style="color:#000000">=&gt; [</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">&quot;marié&quot; </span><span style="color:#000000">=&gt; $marié,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">&quot;enfants&quot; </span><span style="color:#000000">=&gt; $enfants,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">&quot;salaire&quot; </span><span style="color:#000000">=&gt; $salaire</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      ]);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">else </span><span style="color:#000000">{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// make a request to the server with the session cookie</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// create a HTTP customer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $httpClient = </span><span style="color:#005032">HttpClient</span><span style="color:#000000">::</span><span style="font-style:italic;color:#000000">create</span><span style="color:#000000">([</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#0000c0">&quot;verify_peer&quot; </span><span style="color:#000000">=&gt; </span><span style="font-weight:bold;color:#7f0055">false</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">      </span><span style="color:#000000">]);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $response = $httpClient-&gt;request(</span><span style="color:#0000c0">&#x27;GET&#x27;</span><span style="color:#000000">, $this-&gt;</span><span style="color:#0000c0">urlServer</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        [</span><span style="color:#0000c0">&quot;query&quot; </span><span style="color:#000000">=&gt; [</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">&quot;marié&quot; </span><span style="color:#000000">=&gt; $marié,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">&quot;enfants&quot; </span><span style="color:#000000">=&gt; $enfants,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">&quot;salaire&quot; </span><span style="color:#000000">=&gt; $salaire</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="color:#0000c0">&quot;headers&quot; </span><span style="color:#000000">=&gt; </span><span style="font-weight:bold;color:#000000">[&quot;Cookie&quot; =&gt; $this-&gt;sessionCookie]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      ]);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// the answer is retrieved</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $json = $response-&gt;getContent(</span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $array = \</span><span style="font-style:italic;color:#000000">json_decode</span><span style="color:#000000">($json, </span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $réponse = $array</span><span style="font-weight:bold;color:#000000">[&quot;réponse&quot;]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// logs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">print </span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$json</span><span style="color:#0000c0">=json\n&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// retrieve response status</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    $statusCode = $response-&gt;getStatusCode();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// mistake?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($statusCode !== 200) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// we have an error - we throw an exception</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $réponse = </span><span style="font-weight:bold;color:#000000">[&quot;statut HTTP&quot; =&gt; $statusCode]</span><span style="color:#000000"> + $réponse;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      $message = \</span><span style="font-style:italic;color:#000000">json_encode</span><span style="color:#000000">($réponse, </span><span style="font-style:italic;color:#0000c0">JSON_UNESCAPED_UNICODE</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">throw new </span><span style="color:#005032">ExceptionImpots</span><span style="color:#000000">($message);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">(!$this-&gt;</span><span style="color:#0000c0">sessionCookie</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// retrieve the session cookie</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      $headers = $response-&gt;getHeaders();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">isset</span><span style="color:#000000">($headers</span><span style="font-weight:bold;color:#000000">[&quot;set-cookie&quot;]</span><span style="color:#000000">)) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// session cookie ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($headers</span><span style="font-weight:bold;color:#000000">[&quot;set-cookie&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$cookie) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          $match = [];</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          $match = </span><span style="font-style:italic;color:#000000">preg_match</span><span style="color:#000000">(</span><span style="color:#0000c0">&quot;/^PHPSESSID=(.+?);/&quot;</span><span style="color:#000000">, $cookie, </span><span style="text-decoration:underline;color:#000000">$champs</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="font-weight:bold;color:#7f0055">if </span><span style="color:#000000">($match) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            $this-&gt;</span><span style="color:#0000c0">sessionCookie</span><span style="color:#000000"> = </span><span style="color:#0000c0">&quot;PHPSESSID=&quot; </span><span style="color:#000000">. </span><span style="text-decoration:underline;color:#000000">$champs</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">          }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// we return the answer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">return </span><span style="color:#000000">$réponse;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong>Kommentare</strong></p>
+<p>Die Änderung an der <strong>[dao]</strong>-Schicht umfasst nun die Verwaltung einer Sitzung:</p>
+<ul>
+  <li>Zeile 14: das Sitzungs-Cookie;
+  </li>
+  <li>Zeilen 25–39: Bei der ersten Anfrage existiert dieses Cookie noch nicht; daher senden wir die Anfrage an den Server, indem wir die Authentifizierungsinformationen übermitteln (Zeile 28);
+  </li>
+  <li>Zeilen 40–53: Bei nachfolgenden Anfragen verfügen wir normalerweise über das Sitzungscookie. Wir senden daher die Authentifizierungsinformationen nicht (Zeilen 42–44);
+  </li>
+  <li>Zeilen 69–82: Die Antwort des Servers auf die erste Anfrage enthält ein Sitzungscookie. Wir rufen es ab. Dieser Code wurde bereits im <a href="#leclient"><u><span style="color: #0563c1">verlinkten</span></u></a> Abschnitt verwendet und erläutert;
+  </li>
+  <li>Zeile 78: Das abgerufene Sitzungs-Cookie wird im Klassenattribut <b>[$sessionCookie] </b>gespeichert;
+  </li>
+</ul>
+
+<p><strong>Hinweis</strong>: Wir hätten die alte Version der <strong>[dao]</strong>-Schicht beibehalten und bei jeder Anfrage eine Authentifizierung durchführen können, da der Aufwand vernachlässigbar ist. Zu Lehrzwecken wollten wir jedoch zeigen, wie ein HTTP-Client eine Sitzung verwalten kann.</p>
+<p><a id="toc42690078"></a>
+<a id="toc42690464"></a>
+<a id="toc42690850"></a>
+<a id="refheadingtoc1358182222329424"></a></p>
+<h3 id="1922-die-konfigurationsdatei">19.2.2. <span style="color: #4f81bd">Die Konfigurationsdatei</span></h3>
+<p>Die JSON-Konfigurationsdatei entwickelt sich wie folgt:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;rootDirectory&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;C:/Data/st-2019/dev/php7/poly/scripts-console/impots/version-09&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;taxPayersDataFileName&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;Data/taxpayersdata.json&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;resultsFileName&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;Data/results.json&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;errorsFileName&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;Data/errors.json&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;dependencies&quot;</span>: [</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Entities/BaseEntity.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Entities/TaxPayerData.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Entities/ExceptionImpots.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Utilities/Utilitaires.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Dao/InterfaceClientDao.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Dao/TraitDao.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/Dao/ClientDao.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Métier/InterfaceClientMetier.php&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;/../version-08/Métier/ClientMetier.php&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;absoluteDependencies&quot;</span>: [</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="font-style:italic;color:#2a00ff">&quot;C:/myprograms/laragon-lite/www/vendor/autoload.php&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ],</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;user&quot;</span>: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;login&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;admin&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#7f007f">&quot;passwd&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;admin&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#7f007f">&quot;urlServer&quot;</span>: <span style="font-style:italic;color:#2a00ff">&quot;https://localhost:443/php7/scripts-web/impots/</span><span style="font-style:italic;background-color:#ffff00;color:#2a00ff">version-09</span><span style="font-style:italic;color:#2a00ff">/impots-server.php&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>Nur die URL in Zeile 24 ändert sich.</p>
+<p><a id="toc42690079"></a>
+<a id="toc42690465"></a>
+<a id="toc42690851"></a>
+<a id="refheadingtoc1358202222329424"></a></p>
+<h2 id="193-einige-tests">19.3. <span style="color: #4f81bd">Einige Tests</span></h2>
+<p><a id="toc42690080"></a>
+<a id="toc42690466"></a>
+<a id="toc42690852"></a>
+<a id="refheadingtoc1358222222329424"></a></p>
+<h3 id="1931-test-1">19.3.1. <span style="color: #4f81bd">Test 1</span></h3>
+<p>Zunächst führen wir den Client in einer fehlerfreien Umgebung aus. Die Ergebnisse sind dieselben wie in früheren Versionen. Auf der Serverseite haben wir nun jedoch eine Protokolldatei <strong>[logs.txt]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:523 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:529 : <span style="background-color:#ffff00">Autentification en cours</span>…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:529 : Authentification réussie <span style="font-weight:bold">[admin, admin]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:529 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;2, &#x27;salaire&#x27;=&gt;55555] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:529 : <span style="background-color:#ffff00">tranches d&#x27;impôts prises en base de données</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:534 : {&quot;réponse&quot;:{&quot;impôt&quot;:2814,&quot;surcôte&quot;:0,&quot;décôte&quot;:0,&quot;réduction&quot;:0,&quot;taux&quot;:0.14}}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:643 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:648 : <span style="background-color:#ffff00">Authentification prise en session</span>…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:648 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;2, &#x27;salaire&#x27;=&gt;50000] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:648 : <span style="background-color:#ffff00">tranches d&#x27;impôts prises en session</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:648 : {&quot;réponse&quot;:{&quot;impôt&quot;:1384,&quot;surcôte&quot;:0,&quot;décôte&quot;:384,&quot;réduction&quot;:347,&quot;taux&quot;:0.14}}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:769 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:775 : <span style="background-color:#ffff00">Authentification prise en session</span>…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:775 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;3, &#x27;salaire&#x27;=&gt;50000] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:775 : <span style="background-color:#ffff00">tranches d&#x27;impôts prises en session</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:775 : {&quot;réponse&quot;:{&quot;impôt&quot;:0,&quot;surcôte&quot;:0,&quot;décôte&quot;:720,&quot;réduction&quot;:0,&quot;taux&quot;:0.14}}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:16:08:888 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+</code></pre></div>
+
+<ul>
+  <li>Zeilen 3–7: Bei der ersten Anfrage erfolgt die Authentifizierung und die Daten werden aus der Datenbank abgerufen;
+  </li>
+  <li>Zeilen 9–14: Bei der nächsten Anfrage findet keine weitere Authentifizierung statt und die Daten werden aus der Sitzung abgerufen. Dies wiederholt sich bei nachfolgenden Anfragen (Zeile 15 und weiter);
+  </li>
+</ul>
+<p><a id="toc42690081"></a>
+<a id="toc42690467"></a>
+<a id="toc42690853"></a>
+<a id="refheadingtoc1358242222329424"></a></p>
+<h3 id="1932-test-2">19.3.2. <span style="color: #4f81bd">Test 2</span></h3>
+<p>Schalten wir nun die MySQL-Datenbank ab. Auf der Client-Seite erhalten wir folgende Konsolenausgabe:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">L&#x27;erreur suivante s&#x27;est produite : {&quot;statut HTTP&quot;:<span style="background-color:#ffff00">500</span>,&quot;erreur&quot;:&quot;SQLSTATE<span style="font-weight:bold">[HY000]</span> <span style="font-weight:bold">[2002]</span> Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.\r\n&quot;}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Terminé</span></span>
+</code></pre></div>
+
+<p>Auf der Serverseite haben wir die folgenden Protokolle <strong>[logs.txt]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:52:396 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:52:405 : Autentification en cours…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:52:405 : Authentification réussie <span style="font-weight:bold">[admin, admin]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:52:405 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;2, &#x27;salaire&#x27;=&gt;55555] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:52:405 : tranches d&#x27;impôts prises en base de données</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:54:461 : {&quot;réponse&quot;:{&quot;erreur&quot;:&quot;SQLSTATE<span style="font-weight:bold">[HY000]</span> <span style="font-weight:bold">[2002]</span> Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.\r\n&quot;}}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:55:602 : Message <span style="font-weight:bold">[SQLSTATE[HY000]</span> <span style="font-weight:bold">[2002]</span> Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">] envoyé à guest@localhost</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:19:55:706 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+</code></pre></div>
+
+<p>Um die vom Anwendungsadministrator empfangene E-Mail abzurufen, verwenden wir das Skript <strong>[imap-03.php]</strong> aus dem Abschnitt, der mit der folgenden Konfigurationsdatei <strong>[config-imap-01.json]</strong> <a href="#lescriptimap-03php"><u><span style="color: #0563c1">verknüpft ist</span></u></a>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>{
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    &quot;{localhost:110/pop3}&quot;: {
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>        &quot;imap-server&quot;: &quot;localhost&quot;,
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>        &quot;imap-port&quot;: &quot;110&quot;,
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>        &quot;user&quot;: &quot;guest@localhost&quot;,
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>        &quot;password&quot;: &quot;guest&quot;,
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        &quot;pop3&quot;: &quot;TRUE&quot;,
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>        &quot;output-dir&quot;: &quot;output/localhost-pop3&quot;
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>    }
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>}
+</code></pre></div></td></tr></table></div>
+<p>Es ergibt sich folgendes Ergebnis:</p>
+<p><img src="images/10000000000001C900000243A54FF7EA.png" width="160" height="203" style="width:4.232cm;height:5.362cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C900000243A54FF7EA.png" /></p>
+<p>Die Datei <strong>[message_1.txt]</strong> enthält den folgenden Text:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">return-path: guest@localhost</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">received: from localhost (localhost <span style="font-weight:bold">[127.0.0.1]</span>) by DESKTOP-528I5CU with ESMTP ; Thu, 4 Jul 2019 15:20:22 +0200</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">message-id: &lt;c82d26df5fb352e10a51577cd1b9ed87@localhost&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">date: Thu, 04 Jul 2019 13:20:20 +0000</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">subject: <span style="background-color:#ffff00">plantage du serveur de calcul d&#x27;impôts</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">from: guest@localhost</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">to: guest@localhost</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">mime-version: 1.0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">content-type: text/plain; charset=utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">content-transfer-encoding: quoted-printable</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">SQLSTATE<span style="font-weight:bold">[HY000]</span> <span style="font-weight:bold">[2002]</span> Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.</span></span>
+</code></pre></div>
+
+<p><a id="toc42690082"></a>
+<a id="toc42690468"></a>
+<a id="toc42690854"></a>
+<a id="refheadingtoc1358262222329424"></a></p>
+<h3 id="1933-test-3">19.3.3. <span style="color: #4f81bd">Test 3</span></h3>
+<p>Stellen wir nun sicher, dass die Datei <strong>[logs.txt]</strong> nicht erstellt werden kann. Erstellen Sie dazu einfach einen Ordner <strong>[logs.txt]</strong>:</p>
+<p><img src="images/10000000000001C3000001982F08056B.png" width="158" height="143" style="width:4.18cm;height:3.782cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C3000001982F08056B.png" /></p>
+<p>Sobald das erledigt ist, starten wir den Client.</p>
+<p>Auf der Client-Seite erhalten wir die folgende Konsolenausgabe:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">L&#x27;erreur suivante s&#x27;est produite : {&quot;statut HTTP&quot;:<span style="background-color:#ffff00">500</span>,&quot;erreur&quot;:&quot;Echec lors de la création du fichier de logs <span style="font-weight:bold">[Data\/logs.txt]</span>&quot;}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Terminé</span></span>
+</code></pre></div>
+
+<p>Auf der Serverseite sind keine Protokolle vorhanden, aber der Administrator erhält die folgende E-Mail:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">return-path: guest@localhost</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">received: from localhost (localhost <span style="font-weight:bold">[127.0.0.1]</span>) by DESKTOP-528I5CU with ESMTP ; Thu, 4 Jul 2019 15:31:49 +0200</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">message-id: &lt;b2cee274f3437952231d62152ba1cdb3@localhost&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">date: Thu, 04 Jul 2019 13:31:48 +0000</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">subject: <span style="background-color:#ffff00">plantage du serveur de calcul d&#x27;impôts</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">from: guest@localhost</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">to: guest@localhost</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">mime-version: 1.0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">content-type: text/plain; charset=utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">content-transfer-encoding: quoted-printable</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#ffff00">Echec lors de la création du fichier de logs </span><span style="font-weight:bold;background-color:#ffff00">[Data/logs.txt]</span></span></span>
+</code></pre></div>
+
+<p><a id="toc42690083"></a>
+<a id="toc42690469"></a>
+<a id="toc42690855"></a>
+<a id="refheadingtoc1358282222329424"></a></p>
+<h3 id="1934-test-4">19.3.4. <span style="color: #4f81bd">Test 4</span></h3>
+<p>Geben wir diesmal im Client-Konfigurationsdatei falsche Anmeldedaten für den verbindenden Client an.</p>
+<p>Der Client zeigt die folgende Konsolenausgabe an:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">L&#x27;erreur suivante s&#x27;est produite : {&quot;statut HTTP&quot;:<span style="background-color:#ffff00">401</span>,&quot;erreur&quot;:&quot;Echec de l&#x27;authentification <span style="font-weight:bold">[x, x]</span>&quot;}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Terminé</span></span>
+</code></pre></div>
+
+<p>Auf der Serverseite erscheinen folgende Protokolleinträge:    </p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:36:05:789 : Autentification en cours…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:36:05:789 : {&quot;réponse&quot;:{&quot;erreur&quot;:&quot;<span style="background-color:#ffff00">Echec de l&#x27;authentification</span> <span style="font-weight:bold">[x, x]</span>&quot;}}</span></span>
+</code></pre></div>
+
+<p><a id="toc42690084"></a>
+<a id="toc42690470"></a>
+<a id="toc42690856"></a>
+<a id="refheadingtoc1358302222329424"></a></p>
+<h3 id="1935-test-5">19.3.5. <span style="color: #4f81bd">Test 5</span></h3>
+<p>Tragen wir den korrekten Benutzernamen und das Passwort <strong>[admin, admin]</strong> wieder in die Client-Konfigurationsdatei ein.</p>
+<p>Rufen wir nun die URL des Servers <strong>[http://localhost/php7/scripts-web/impots/version-08/impots-server.php]</strong> direkt in einem Browser auf, ohne Parameter zu übergeben:</p>
+<p>In der Logdatei des Servers <strong>[logs.txt]</strong> sehen wir die folgenden Zeilen:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:37:33:711 : Autentification en cours…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:37:33:711 : Authentification réussie <span style="font-weight:bold">[admin, admin]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:37:33:711 : {&quot;réponse&quot;:{&quot;erreurs&quot;:<span style="font-weight:bold">[&quot;Méthode GET requise avec les seuls paramètres [marié, enfants, salaire]</span>&quot;,&quot;paramètre marié manquant&quot;,&quot;paramètre enfants manquant&quot;,&quot;paramètre salaire manquant&quot;]}}</span></span>
+</code></pre></div>
+
+<p><a id="toc42690085"></a>
+<a id="toc42690471"></a>
+<a id="toc42690857"></a>
+<a id="refheadingtoc185697971629160"></a></p>
+<h2 id="194-tests-codeception">19.4. <span style="color: #4f81bd">Tests [Codeception]</span></h2>
+<p><span style="color: #000000">Wie bei früheren Versionen werden wir auch für Version 09 </span><strong><span style="color: #000000">[Codeception]</span></strong><span style="color: #000000">-Tests schreiben.</span></p>
+<p><img src="images/10000000000001BE000001FDF014D89F.png" width="156" height="178" style="width:4.129cm;height:4.711cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BE000001FDF014D89F.png" /></p>
+<p><a id="toc42690086"></a>
+<a id="toc42690472"></a>
+<a id="toc42690858"></a>
+<a id="refheadingtoc185699971629160"></a></p>
+<h4 id="19401-business-layer-test">19.4.0.1. <span style="color: #4f81bd"><span style="color: #4f81bd">[Business]-Layer-Test</span></span></h4>
+<p><span style="color: #000000">Der Test</span><strong><span style="color: #000000"> [ClientMetierTest.php] </span></strong><span style="color: #000000">sieht wie folgt aus:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// strict adherence to declared types of function parameters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">declare </span><span style="color:#000000">(strict_types=1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// namespace</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">namespace </span><span style="color:#000000">Application;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// definition of constants</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;color:#000000">define</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">&quot;ROOT&quot;</span><span style="color:#000000">, </span><span style="color:#0000c0">&quot;C:/Data/st-2019/dev/php7/poly/scripts-console/impots/</span><span style="background-color:#ffff00;color:#0000c0">version-09</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// configuration file path</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;color:#000000">define</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">&quot;CONFIG_FILENAME&quot;</span><span style="color:#000000">, </span><span style="font-style:italic;color:#0000c0">ROOT</span><span style="color:#000000"> . </span><span style="color:#0000c0">&quot;/Data/config-client.json&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// we retrieve the configuration</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$config = \</span><span style="font-style:italic;color:#000000">json_decode</span><span style="color:#000000">(</span><span style="font-style:italic;color:#000000">file_get_contents</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">CONFIG_FILENAME</span><span style="color:#000000">), </span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// include the necessary script dependencies</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">$rootDirectory = $config</span><span style="font-weight:bold;color:#000000">[&quot;rootDirectory&quot;]</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;dependencies&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$dependency) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">require </span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$rootDirectory</span><span style="color:#0000c0">/</span><span style="color:#000000">$dependency</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// absolute dependencies (third-party libraries)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">foreach </span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;absoluteDependencies&quot;]</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">as </span><span style="color:#000000">$dependency) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">require </span><span style="color:#0000c0">&quot;</span><span style="color:#000000">$dependency</span><span style="color:#0000c0">&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">//</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// uses</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">use </span><span style="color:#000000">Codeception\Test\Unit;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">use const</span><span style="color:#000000"> CONFIG_FILENAME;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">use const</span><span style="color:#000000"> ROOT;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// test class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class </span><span style="color:#005032">ClientMetierTest</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">extends </span><span style="text-decoration:underline;color:#005032">Unit</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#557f5f">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><strong><span style="color: #000000">Kommentare</span></strong></p>
+<ul>
+  <li><span style="color: #000000">Im Vergleich zur Testklasse in Version 08 besteht die einzige Änderung in Zeile 10, in der das Stammverzeichnis des zu testenden Clients angegeben wird;</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">Die Testergebnisse lauten wie folgt:</span></p>
+<p><img src="images/10000000000006A900000147626EE074.png" width="597" height="114" style="width:15.79cm;height:3.029cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006A900000147626EE074.png" /></p>
+<p><span style="color: #000000">Es lohnt sich, die Serverprotokolle </span><strong><span style="color: #000000">[logs.txt] </span></strong><span style="color: #000000">zu überprüfen:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:525 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:536 : Autentification en cours…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:536 : Authentification réussie <span style="font-weight:bold">[admin, admin]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:536 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;2, &#x27;salaire&#x27;=&gt;55555] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:536 : <span style="background-color:#ffff00">données fiscales prises en base de données</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:548 : {&quot;réponse&quot;:{&quot;impôt&quot;:2814,&quot;surcôte&quot;:0,&quot;décôte&quot;:0,&quot;réduction&quot;:0,&quot;taux&quot;:0.14}}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:635 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:645 : Autentification en cours…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:645 : Authentification réussie <span style="font-weight:bold">[admin, admin]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:645 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;2, &#x27;salaire&#x27;=&gt;50000] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:645 : <span style="background-color:#ffff00">données fiscales prises en base de données</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:655 : {&quot;réponse&quot;:{&quot;impôt&quot;:1384,&quot;surcôte&quot;:0,&quot;décôte&quot;:384,&quot;réduction&quot;:347,&quot;taux&quot;:0.14}}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:751 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:762 : Autentification en cours…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:762 : Authentification réussie <span style="font-weight:bold">[admin, admin]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:762 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;3, &#x27;salaire&#x27;=&gt;50000] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:762 : <span style="background-color:#ffff00">données fiscales prises en base de données</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:773 : {&quot;réponse&quot;:{&quot;impôt&quot;:0,&quot;surcôte&quot;:0,&quot;décôte&quot;:720,&quot;réduction&quot;:0,&quot;taux&quot;:0.14}}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:48:865 :</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---nouvelle requête</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:49:546 : Autentification en cours…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:49:546 : Authentification réussie <span style="font-weight:bold">[admin, admin]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:49:546 : paramètres [&#x27;marié&#x27;=&gt;oui, &#x27;enfants&#x27;=&gt;3, &#x27;salaire&#x27;=&gt;200000] valides</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:49:546 : <span style="background-color:#ffff00">données fiscales prises en base de données</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">04/07/19 13:48:49:551 : {&quot;réponse&quot;:{&quot;impôt&quot;:42842,&quot;surcôte&quot;:17283,&quot;décôte&quot;:0,&quot;réduction&quot;:0,&quot;taux&quot;:0.41}}</span></span>
+</code></pre></div>
+
+<p>Wir sehen, dass die Daten der Steuerbehörde immer aus der Datenbank und niemals aus der Sitzung abgerufen werden. Kehren wir zum Code des ausgeführten Tests zurück:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-php">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;?php</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// strict adherence to declared types of function parameters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">declare </span><span style="color:#000000">(strict_types=1);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// namespace</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">namespace </span><span style="color:#000000">Application;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">// test class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class </span><span style="color:#005032">ClientMetierTest</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">extends </span><span style="text-decoration:underline;color:#005032">Unit</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// business layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">private </span><span style="color:#0000c0">$métier</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> __construct() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">parent</span><span style="color:#000000">::</span><span style="font-style:italic;color:#000000">__construct</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// we retrieve the configuration</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $config = \</span><span style="font-style:italic;color:#000000">json_decode</span><span style="color:#000000">(\</span><span style="font-style:italic;color:#000000">file_get_contents</span><span style="color:#000000">(</span><span style="font-style:italic;color:#0000c0">CONFIG_FILENAME</span><span style="color:#000000">), </span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// creation of the [dao] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $clientDao = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">ClientDao</span><span style="color:#000000">($config</span><span style="font-weight:bold;color:#000000">[&quot;urlServer&quot;]</span><span style="color:#000000">, $config</span><span style="font-weight:bold;color:#000000">[&quot;user&quot;]</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// creation of the [business] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    $this-&gt;</span><span style="color:#0000c0">métier</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new </span><span style="color:#005032">ClientMetier</span><span style="color:#000000">($clientDao);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// tests</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> test1() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> test2() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#008040">public </span><span style="font-weight:bold;color:#7f0055">function</span><span style="color:#000000"> test3() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  …</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>In einer <strong>[Codeception]</strong>-Testklasse <strong>wird der Konstruktor für jeden Test ausgeführt</strong>.</p>
+<ul>
+  <li>Zeile 21: Daher wird für jeden Test ein neues <b>[ClientDao] </b>mit einem NULL-Session-Cookie erstellt. Dies erklärt, warum dieser Client nicht von einer Session profitiert;
+  </li>
+</ul>
+
+<p>Dieses Beispiel zeigt uns, dass die Sitzung nicht der richtige Ort ist, um Daten der Steuerverwaltung zu speichern. Tatsächlich werden diese Daten von allen Benutzern der Anwendung gemeinsam genutzt. Hier werden sie jedoch in jeder ihrer Sitzungen dupliziert.</p>
+<p>In der Webprogrammierung gibt es drei Arten der Sichtbarkeit für gemeinsam genutzte Daten:</p>
+<ul>
+  <li>Daten, die <b>von allen Benutzern </b>der Webanwendung <b>gemeinsam genutzt werden</b>. Dabei handelt es sich in der Regel um schreibgeschützte Daten. PHP unterstützt diese Art der Speicherung nicht nativ;
+  </li>
+  <li>Daten, die über Anfragen <b>desselben Clients hinweg</b> gemeinsam genutzt werden. Diese Daten werden in der Sitzung gespeichert. Wir bezeichnen dies als <b>Client-Sitzung</b>, um den Speicher des Clients zu kennzeichnen. Alle Anfragen eines Clients haben Zugriff auf diese Sitzung. Sie können dort Informationen speichern und lesen. In den vorherigen Skripten wird diese Sitzung durch das Symfony-Objekt <b>[HttpFoundation\Session\Session] </b>implementiert;
+  </li>
+  <li><b>Der Anforderungsspeicher </b>oder Anforderungskontext. Die Anforderung eines Benutzers kann durch mehrere aufeinanderfolgende Aktionen verarbeitet werden. Der Anforderungskontext ermöglicht es Aktion 1, Informationen an Aktion 2 weiterzugeben. In den vorherigen Skripten wird die Anforderung durch das Symfony-Objekt <b>[HttpFoundation\Request] </b>und deren Speicher durch das Attribut <b>[HttpFoundation\Request::attributes] </b>implementiert;
+  </li>
+</ul>
+
+<p><img src="images/10000000000006FD000001F9C4D3D2CC.png" width="537" height="151" style="width:14.199cm;height:4.008cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006FD000001F9C4D3D2CC.png" /></p>
+<p>Es gibt Bibliotheken von Drittanbietern, die PHP mit einem Anwendungsstatus versorgen. Die neue Version der Anwendungsübung demonstriert die Verwendung einer davon.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Dieses Tutorial, verfasst von <strong>Serge Tahé</strong>, wird der Öffentlichkeit gemäß den Bedingungen der
+<em>Creative Commons Namensnennung – Nicht kommerziell –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
